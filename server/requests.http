@@ -1,0 +1,30 @@
+### Register
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "demo",
+  "email": "demo@example.com",
+  "password": "Password123"
+}
+
+### Login
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "identifier": "demo",
+  "password": "Password123"
+}
+
+### Create post (replace TOKEN)
+POST http://localhost:5000/api/posts
+Authorization: Bearer {{TOKEN}}
+Content-Type: application/json
+
+{
+  "title": "Hello World",
+  "content": "This is a fully fleshed blog post with more than fifty characters in total to satisfy validation.",
+  "imageURL": "https://via.placeholder.com/800x400"
+}
+

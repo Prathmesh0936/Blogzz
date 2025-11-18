@@ -109,13 +109,14 @@ Add screenshots or a short GIF of the UI after running `npm run dev` in both fol
 <img width="1920" height="1080" alt="Screenshot 2025-11-18 231000" src="https://github.com/user-attachments/assets/d4096a9b-1d55-4612-8c47-ab81905ba3ce" />
 <br>
 
--Create
+-Create Post
 <img width="1920" height="1080" alt="Screenshot 2025-11-18 231031" src="https://github.com/user-attachments/assets/71c93c64-8f4e-4327-8217-d4a647579bef" />
 <br>
 
 -My Posts
 <img width="1920" height="1080" alt="Screenshot 2025-11-18 231012" src="https://github.com/user-attachments/assets/86d52be5-def0-400f-bcab-f7c73fef3a87" />
 <br>
+
 
 
 

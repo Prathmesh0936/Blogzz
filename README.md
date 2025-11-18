@@ -96,29 +96,27 @@ See `server/requests.http` for ready-to-run REST Client snippets.
 ## Screenshots / Demo
 
 Add screenshots or a short GIF of the UI after running `npm run dev` in both folders (not included in this repo).
--Register
 
+-Register
 <img width="1920" height="1080" alt="Screenshot 2025-11-18 231122" src="https://github.com/user-attachments/assets/b9688705-7030-4b95-886b-17dcf35187f9" />
 <br>
 
 -Login
-
 <img width="1920" height="1080" alt="Screenshot 2025-11-18 231108" src="https://github.com/user-attachments/assets/625cec07-6da2-4735-874c-e4254d633b22" />
 <br>
 
 -Feed
-
 <img width="1920" height="1080" alt="Screenshot 2025-11-18 231000" src="https://github.com/user-attachments/assets/d4096a9b-1d55-4612-8c47-ab81905ba3ce" />
 <br>
--Create
 
+-Create
 <img width="1920" height="1080" alt="Screenshot 2025-11-18 231031" src="https://github.com/user-attachments/assets/71c93c64-8f4e-4327-8217-d4a647579bef" />
 <br>
 
 -My Posts
-
 <img width="1920" height="1080" alt="Screenshot 2025-11-18 231012" src="https://github.com/user-attachments/assets/86d52be5-def0-400f-bcab-f7c73fef3a87" />
 <br>
+
 
 
 

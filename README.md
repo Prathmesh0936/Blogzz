@@ -1,180 +1,98 @@
-🌐 Full-Stack Blog (MERN)
-<br>
+# Full-Stack Blog (MERN)
 
-A complete, production-ready MERN application where authenticated users can create, read, update, and delete blog posts — powered by JWT auth, clean routing, and a polished UI.
-<br>
+A complete MERN application that lets authenticated users create, read, update, and delete blog posts with JWT-based authentication, client-side routing, and polished UX.
 
-🚀 Tech Stack
-<br>
-Backend
+## Tech Stack
 
-Node.js
+- **Backend:** Node.js, Express 5, MongoDB (Mongoose), JWT, bcrypt, express-validator
+- **Frontend:** React + Vite + TypeScript, React Router, Zustand, Axios, React Hot Toast
+- **Tooling:** Nodemon, Day.js
 
-Express 5
+## Project Structure
 
-MongoDB (Mongoose)
-
-JWT Authentication
-
-bcrypt
-
-express-validator
-
-<br>
-Frontend
-
-React + Vite
-
-TypeScript
-
-React Router
-
-Zustand
-
-Axios
-
-React Hot Toast
-
-<br>
-Tooling
-
-Nodemon
-
-Day.js
-
-<br>
-📁 Project Structure
-<br>
-/client      → Vite + React frontend
-/server      → Express + MongoDB backend
+```
+/client      # Vite + React frontend
+/server      # Express + MongoDB backend
 README.md
+```
 
-Preview Code
-<br>
-⚙️ Getting Started
-<br>
-🔧 Prerequisites
+## Getting Started
 
-Node.js 18+
+### Prerequisites
 
-MongoDB (Atlas or local)
+- Node.js 18+
+- MongoDB instance (Atlas or local)
 
-<br>
-🖥️ Backend Setup
-<br>
+### Backend
+
+```bash
 cd server
-cp .env.example .env     # Fill PORT, MONGODB_URI, JWT_SECRET, CORS_ORIGIN
+cp .env.example .env   # fill PORT, MONGODB_URI, JWT_SECRET, CORS_ORIGIN
 npm install
-npm run dev              # Runs at http://localhost:5000
+npm run dev            # starts nodemon on http://localhost:5000
+```
 
-Preview Code
-<br>
-💻 Frontend Setup
-<br>
+### Frontend
+
+```bash
 cd client
-cp .env.example .env     # Set VITE_API_URL (defaults to http://localhost:5000/api)
+cp .env.example .env   # set VITE_API_URL (defaults to http://localhost:5000/api)
 npm install
-npm run dev              # Runs at http://localhost:5173
+npm run dev            # launches Vite on http://localhost:5173
+```
 
-Preview Code
-<br>
-🧰 Available Scripts
-<br>
-Location	Script	Purpose
-server	npm run dev	Run API with Nodemon
-server	npm start	Start production server
-client	npm run dev	Run Vite dev server
-client	npm run build	Type-check & build frontend
-client	npm run preview	Preview production build
-<br>
-🔌 API Overview
-<br>
+## Available Scripts
 
-Base URL: /api
-<br>
+| Location | Script      | Purpose                         |
+|----------|-------------|---------------------------------|
+| server   | `npm run dev` | Start API with Nodemon          |
+| server   | `npm run start` | Production server start        |
+| client   | `npm run dev` | Start Vite dev server          |
+| client   | `npm run build` | Type-check & build frontend    |
+| client   | `npm run preview` | Preview production build      |
 
-Method	Route	Description	Auth
-POST	/auth/register	Register { username, email, password }	❌
-POST	/auth/login	Login { identifier, password }	❌
-GET	/posts	Fetch posts (supports search & pagination)	❌
-GET	/posts/:id	Fetch single post	❌
-GET	/posts/me	Posts created by logged-in user	✔️
-POST	/posts	Create post	✔️
-PUT	/posts/:id	Update post (owner only)	✔️
-DELETE	/posts/:id	Delete post (owner only)	✔️
-<br>
+## API Overview
 
-Responses follow:
-<br>
+Base URL: `/api`
 
-{ message, data, pagination?, details? }
+| Method | Route | Description | Auth |
+|--------|-------|-------------|------|
+| POST | `/auth/register` | Register user `{ username, email, password }` | No |
+| POST | `/auth/login` | Login `{ identifier, password }` | No |
+| GET | `/posts` | List posts with `search`, `page`, `limit` | No |
+| GET | `/posts/:id` | Get single post | No |
+| GET | `/posts/me` | Posts for logged-in user | Yes |
+| POST | `/posts` | Create post | Yes |
+| PUT | `/posts/:id` | Update post (owner only) | Yes |
+| DELETE | `/posts/:id` | Delete post (owner only) | Yes |
 
-Preview Code
-<br>
+Responses follow `{ message, data, pagination? }` shape with consistent error `{ message, details }`.
 
-See server/requests.http for ready-to-run REST Client snippets.
-<br>
+See `server/requests.http` for ready-to-run REST Client snippets.
 
-🔐 Validation & Security
-<br>
+## Validation & Security
 
-Server-side validation via express-validator
+- Server-side validation via `express-validator`
+- Password hashing with `bcryptjs`
+- JWT auth middleware guards all write routes
+- Ownership checks ensure only authors can edit/delete their posts
+- CORS locked to configured origin
+- Client mirrors validations and surfaces inline errors
 
-Password hashing with bcryptjs
+## Frontend Highlights
 
-JWT auth middleware securing protected routes
+- React Router pages: Feed, Post Detail, Create/Edit, Auth, Profile
+- Zustand store for token/user with localStorage persistence
+- Axios abstraction with interceptors injects JWT
+- Search, pagination, loading & empty states, toasts, and delete confirmations
 
-Ownership checks to ensure only authors can update/delete
+## Testing & Deployment Notes
 
-CORS restricted to configured origin
+- Use the provided `.env.example` files to configure environments
+- Run `npm run build` in `/client` before deploying the frontend
+- Deploy backend (e.g., Render, Railway) and expose `MONGODB_URI`, `JWT_SECRET`, `CORS_ORIGIN`
+- Point `VITE_API_URL` to deployed API before building the frontend
 
-Client mirrors backend validation and handles inline errors
+## Screenshots / Demo
 
-<br>
-🎨 Frontend Highlights
-<br>
-
-React Router pages: Feed, Post Detail, Create/Edit, Auth, Profile
-
-Zustand store with persistent auth state
-
-Axios instance with JWT interceptor
-
-Search, pagination, loading & empty states
-
-Toast notifications
-
-Delete confirmation modals
-
-<br>
-🚀 Testing & Deployment Notes
-<br>
-
-Configure environment variables using .env.example
-
-Build client before deployment:
-
-<br>
-cd client
-npm run build
-
-Preview Code
-<br>
-
-Deploy backend (Render, Railway, etc.) using required env vars:
-
-MONGODB_URI
-
-JWT_SECRET
-
-CORS_ORIGIN
-
-Set VITE_API_URL to backend URL before rebuilding frontend
-
-<br>
-📸 Screenshots / Demo
-<br>
-
-Add screenshots or a short demo GIF after running both servers.
-(Not included in this repo.)
-<br>
+Add screenshots or a short GIF of the UI after running `npm run dev` in both folders (not included in this repo).

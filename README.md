@@ -57,10 +57,10 @@ Base URL: `/api`
 
 | Method | Route | Description | Auth |
 |--------|-------|-------------|------|
-| POST | `/auth/register` | Register user `{ username, email, password }` | No |
-| POST | `/auth/login` | Login `{ identifier, password }` | No |
-| GET | `/posts` | List posts with `search`, `page`, `limit` | No |
-| GET | `/posts/:id` | Get single post | No |
+| POST | `/auth/register` | Register user `{ username, email, password }` | Yes |
+| POST | `/auth/login` | Login `{ identifier, password }` | Yes |
+| GET | `/posts` | List posts with `search`, `page`, `limit` | Yes |
+| GET | `/posts/:id` | Get single post | Yes |
 | GET | `/posts/me` | Posts for logged-in user | Yes |
 | POST | `/posts` | Create post | Yes |
 | PUT | `/posts/:id` | Update post (owner only) | Yes |
@@ -116,6 +116,7 @@ Add screenshots or a short GIF of the UI after running `npm run dev` in both fol
 -My Posts
 <img width="1920" height="1080" alt="Screenshot 2025-11-18 231012" src="https://github.com/user-attachments/assets/86d52be5-def0-400f-bcab-f7c73fef3a87" />
 <br>
+
 
 
 
